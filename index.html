@@ -1,32 +1,110 @@
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Đừng sủa bẩn</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Đừng kiếm chuyện</title>
   <style>
     body {
       margin: 0;
       padding: 0;
-      background-color: black;
-      color: white;
+      background: url('https://media.giphy.com/media/fdLRGvYFZUgJWb6UBS/giphy.gif') no-repeat center center fixed;
+      background-size: cover;
+      color: #00ff00;
+      font-family: 'Courier New', monospace;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
+      text-align: center;
+    }
+
+    .blinking {
       font-size: 32px;
-      font-family: Arial, sans-serif;
+      animation: blink 1s infinite;
+      margin-bottom: 20px;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    .avatar {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 3px solid #00ff00;
+      margin-bottom: 20px;
+      box-shadow: 0 0 15px #00ff00;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #00ff00;
+      color: black;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #66ff66;
+    }
+
+    .social {
+      margin-top: 25px;
+    }
+
+    .social img {
+      width: 40px;
+      height: 40px;
+      transition: 0.3s;
+    }
+
+    .social img:hover {
+      transform: scale(1.2);
     }
   </style>
 </head>
 <body>
-  Bố Nguyễn Tuấn Kiệt Đẹp Trai On Top
 
-  <!-- Nhạc nền -->
-  <audio autoplay loop>
+  <img src="https://cdn.jsdelivr.net/gh/phtuankiet/imgcdn@main/anime-avatar.png" alt="Avatar" class="avatar">
+
+  <div class="blinking">Đừng kiếm chuyện với tui</div>
+
+  <button onclick="toggleMusic()">Tắt nhạc</button>
+
+  <div class="social">
+    <a href="https://www.facebook.com/tuwnkietzz" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
+    </a>
+  </div>
+
+  <audio id="bgm" autoplay loop>
     <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
     Trình duyệt không hỗ trợ audio.
   </audio>
+
+  <script>
+    const bgm = document.getElementById("bgm");
+    const button = document.querySelector("button");
+    let isPlaying = true;
+
+    function toggleMusic() {
+      if (isPlaying) {
+        bgm.pause();
+        button.innerText = "Bật nhạc";
+      } else {
+        bgm.play();
+        button.innerText = "Tắt nhạc";
+      }
+      isPlaying = !isPlaying;
+    }
+  </script>
+
 </body>
 </html>
