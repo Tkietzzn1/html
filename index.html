@@ -17,6 +17,7 @@
       justify-content: center;
       height: 100vh;
       text-align: center;
+      overflow: hidden;
     }
 
     .rainbow-text {
@@ -37,7 +38,15 @@
 
     @keyframes blink {
       0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
+      50% { opacity: 0.4; }
+    }
+
+    .avatar-wrapper {
+      position: relative;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      margin-bottom: 20px;
     }
 
     .avatar {
@@ -45,8 +54,24 @@
       height: 150px;
       border-radius: 50%;
       border: 3px solid #00ff00;
-      margin-bottom: 20px;
       box-shadow: 0 0 15px #00ff00;
+    }
+
+    .avatar-border {
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 3px dashed #00ff00;
+      box-shadow: 0 0 15px #00ff00;
+      animation: rotate 4s linear infinite;
+    }
+
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
 
     button {
@@ -81,7 +106,10 @@
 </head>
 <body>
 
-  <img src="https://cdn.jsdelivr.net/gh/phtuankiet/imgcdn@main/anime-avatar.png" alt="Avatar" class="avatar">
+  <div class="avatar-wrapper">
+    <div class="avatar-border"></div>
+    <img src="avatar.gif" alt="Avatar" class="avatar">
+  </div>
 
   <div class="rainbow-text">Chào mừng bạn đến với Profile Nguyen Tuan Kiet !</div>
 
