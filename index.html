@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Đừng kiếm chuyện</title>
+  <title>Nguyen Tuan Kiet</title>
   <style>
     body {
       margin: 0;
       padding: 0;
-      background: url('https://media.giphy.com/media/fdLRGvYFZUgJWb6UBS/giphy.gif') no-repeat center center fixed;
+      background: url('https://cdn.jsdelivr.net/gh/phtuankiet/imgcdn@main/hacker-bg.jpg') no-repeat center center fixed;
       background-size: cover;
-      color: #00ff00;
       font-family: 'Courier New', monospace;
       display: flex;
       flex-direction: column;
@@ -20,15 +19,25 @@
       text-align: center;
     }
 
-    .blinking {
-      font-size: 32px;
-      animation: blink 1s infinite;
+    .rainbow-text {
+      font-size: 28px;
+      font-weight: bold;
+      background: linear-gradient(270deg, red, orange, yellow, green, blue, indigo, violet);
+      background-size: 1000% 100%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: rainbow 5s linear infinite, blink 1.5s infinite;
       margin-bottom: 20px;
+    }
+
+    @keyframes rainbow {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
     }
 
     @keyframes blink {
       0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
+      50% { opacity: 0.3; }
     }
 
     .avatar {
@@ -56,7 +65,7 @@
     }
 
     .social {
-      margin-top: 25px;
+      margin-top: 20px;
     }
 
     .social img {
@@ -74,7 +83,7 @@
 
   <img src="https://cdn.jsdelivr.net/gh/phtuankiet/imgcdn@main/anime-avatar.png" alt="Avatar" class="avatar">
 
-  <div class="blinking">Đừng kiếm chuyện với tui</div>
+  <div class="rainbow-text">Chào mừng bạn đến với Profile Nguyen Tuan Kiet !</div>
 
   <button onclick="toggleMusic()">Tắt nhạc</button>
 
@@ -85,7 +94,7 @@
   </div>
 
   <audio id="bgm" autoplay loop>
-  <source src="https://tkietzzn1.github.io/html/audio.mp3" type="audio/mpeg">
+    <source src="audio.mp3" type="audio/mpeg">
     Trình duyệt không hỗ trợ audio.
   </audio>
 
